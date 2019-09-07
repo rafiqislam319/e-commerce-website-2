@@ -78,7 +78,7 @@
         </div>
         <div class="top_nav_right">
             <div class="cart box_1">
-                <a href="checkout.html">
+                <a href="{{route('show-cart')}}">
                     <h3> <div class="total">
                             <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i>
                             <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>

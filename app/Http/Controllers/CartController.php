@@ -24,9 +24,22 @@ class CartController extends Controller
     }
     public function showCart(){
         $cartProducts = Cart::getContent();
-        return $cartProducts;
+        //return $cartProducts;
         return view('front-end.cart.show-cart', [
             'cartProducts'=>$cartProducts
         ]);
+    }
+    public function deleteCart($id){
+        Cart::remove($id);
+        //Cart::session($id)->clear();
+        return redirect('/cart/show');
+    }
+    public function updateCart(Request $request){
+        Cart::update($request->id, [
+            'quantity'=>1
+        ]);
+        //Cart::update($request->quantity, $request->id);
+        return redirect('/cart/show');
+        //return 'success';
     }
 }

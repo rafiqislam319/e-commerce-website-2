@@ -16,6 +16,8 @@ Route::get('product-details/{id}/{name}', [
     'uses' => 'eCommerceController@productDetails',
     'as' =>'product-details'
 ]);
+
+
 Route::post('/cart/add', [
     'uses' => 'CartController@addTocart',
     'as' =>'add-to-cart'
@@ -23,6 +25,21 @@ Route::post('/cart/add', [
 Route::get('/cart/show', [
     'uses' => 'CartController@showCart',
     'as' =>'show-cart'
+]);
+Route::get('/delete/cart/{id}', [
+    'uses' => 'CartController@deleteCart',
+    'as' =>'delete-cart-item'
+]);
+Route::post('/cart/update/', [
+    'uses' => 'CartController@updateCart',
+    'as' =>'update-cart'
+]);
+
+
+
+Route::get('/checkout/', [
+    'uses' => 'CheckoutController@index',
+    'as' =>'checkout'
 ]);
 
 

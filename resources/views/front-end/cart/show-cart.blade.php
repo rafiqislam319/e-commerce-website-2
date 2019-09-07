@@ -25,22 +25,51 @@
                             <th>Action</th>
                         </tr>
                         @php($i = 1)
+                        @php($sum = 0)
                         @foreach($cartProducts as $cartProduct)
                         <tr>
                             <td>{{$i++}}</td>
                             <td>{{$cartProduct->name}}</td>
                             <td><img src="{{asset($cartProduct->attributes->image)}}" alt="image" width="70" height="70"/></td>
                             <td>{{$cartProduct->price}}</td>
-                            <td>{{$cartProduct->quantity}}</td>
-                            <td>{{$cartProduct->price*$cartProduct->quantity}}</td>
                             <td>
-                                <a class="btn btn-danger btn-xs" title="Delete">
+                                {{ Form::open(['route'=>'update-cart', 'method'=>'post']) }}
+                                <input type="number" name="qty" value="{{$cartProduct->quantity}}"/>
+                                <input type="hidden" name="id" value="{{$cartProduct->id}}"/>
+                                <input type="submit" name="btn" value="update"/>
+                                {{ Form::close() }}
+                            </td>
+                            <td>{{ $total = $cartProduct->price*$cartProduct->quantity }}</td>
+                            <td>
+                                <a href="{{route('delete-cart-item', ['rowId'=>$cartProduct->id])}}" class="btn btn-danger btn-xs" title="Delete">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
                             </td>
                         </tr>
+                            <?php $sum = $sum + $total; ?>
                             @endforeach
                     </table>
+                    <hr/>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Item Total (TK.)</th>
+                            <td>{{ $sum }}</td>
+                        </tr>
+                        <tr>
+                            <th>Total Vat (TK.)</th>
+                            <td>{{ $vat = 0 }}</td>
+                        </tr>
+                        <tr>
+                            <th>Grand Total (TK.)</th>
+                            <td>{{ $sum+$vat }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-11 col-md-offset-1">
+                    <a href="{{route('checkout')}}" class="btn btn-success pull-right">Checkout</a>
+                    <a class="btn btn-success">Continue Shopping</a>
                 </div>
             </div>
         </div>

@@ -54,12 +54,12 @@
                 <div class="description">
                         <p><b class="text-success">Quick Overview   :   </b>{{$product->short_description}}</p>
                 </div>
-                {{Form::open(['route'=>'add-to-cart', 'method'=>'POST'])}}
+                {{Form::open(['route'=>'add-to-cart', 'method'=>'POST']) }}
                 <div class="color-quality">
                     <div class="color-quality-right">
                         <h5>Quantity :</h5>
                         <input type="number" name="qty" value="1" min="1"/>
-                        <input type="text" name="id" value="{{ $product->id }}"/>
+                        <input type="hidden" name="id" value="{{ $product->id }}"/>
                     </div>
                 </div>
                 <br/>
