@@ -41,6 +41,35 @@ Route::get('/checkout/', [
     'uses' => 'CheckoutController@index',
     'as' =>'checkout'
 ]);
+Route::post('/customer/registration', [
+    'uses' => 'CheckoutController@customerSignUp',
+    'as' =>'customer-sign-up'
+]);
+Route::post('/customer/login', [
+    'uses' => 'CheckoutController@customerLoginCheck',
+    'as' =>'customer-login'
+]);
+
+Route::get('/checkout/shipping', [
+    'uses' => 'CheckoutController@shippingForm',
+    'as' =>'checkout-shipping'
+]);
+Route::post('/shipping/save', [
+    'uses' => 'CheckoutController@saveShippingInfo',
+    'as' =>'new-shipping'
+]);
+Route::get('/checkout/payment', [
+    'uses' => 'CheckoutController@paymentForm',
+    'as' =>'checkout-payment'
+]);
+Route::post('/checkout/order', [
+    'uses' => 'CheckoutController@newOrder',
+    'as' =>'new-order'
+]);
+Route::get('/complete/order', [
+    'uses' => 'CheckoutController@completeOrder',
+    'as' =>'complete-order'
+]);
 
 
 
