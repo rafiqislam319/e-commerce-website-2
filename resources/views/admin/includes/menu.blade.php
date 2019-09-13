@@ -50,6 +50,9 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href="{{route('manage-order')}}"><i class="fa fa-bar-chart-o fa-fw"></i> Manage Order <span class="fa arrow"></span></a>
+        </li>
 
     </ul>
     <!-- /#side-menu -->

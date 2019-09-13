@@ -71,6 +71,20 @@
                             @foreach($categories as $category)
                             <li class="active menu__item menu__item--current"><a class="menu__link" href="{{route('category-products', ['id'=>$category->id])}}"> {{$category->category_name}} <span class="sr-only">(current)</span></a></li>
                             @endforeach
+                                @if(Session::get('newCustomerId'))
+                                <li class="nav-item dropdown"><a class="nav-link text-white dropdown-toggle" data-toggle="dropdown" href="">{{ Session::get('newCustomerName') }} <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" class="dropdown-item text-white" onclick="document.getElementById('customerLogoutForm').submit();"><span style="color:black;">Logout</span></a></li>
+                                        {{ Form::open(['route'=>'customer-logout', 'method'=>'POST', 'id'=>'customerLogoutForm']) }}
+                                        {{ Form::close() }}
+                                    </ul>
+                                </li>
+
+                                @else
+                                    <li class= nav-item"active"><a class="nav-link" href="{{ route('new-customer-login-page') }}">Login</a></li>
+                                    <li class= nav-item"active"><a class="nav-link" href="{{ route('frontend-sign-up') }}">SignUp</a></li>
+
+                                @endif
                         </ul>
                     </div>
                 </div>

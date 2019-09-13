@@ -3,7 +3,7 @@
 
     <div class="page-head">
         <div class="container">
-            <h3>Single</h3>
+            <h3>Details</h3>
         </div>
     </div>
     <!-- //banner -->

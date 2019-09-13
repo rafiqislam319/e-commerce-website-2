@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{asset('/')}}/admin/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css">
     {{--for ckeditor link ends here--}}
 
+    <link rel="stylesheet" href="{{asset('/')}}/admin/css/style2.css"> {{--for invoice--}}
+
 </head>
 <br/>
 
@@ -67,6 +69,8 @@
 <!-- Page-Level Plugin Scripts - Dashboard -->
 <script src="{{ asset('/') }}/admin/js/plugins/morris/raphael-2.1.0.min.js"></script>
 <script src="{{ asset('/') }}/admin/js/plugins/morris/morris.js"></script>
+
+<script  src="{{ asset('/') }}/admin/js/index2.js"></script>{{--for invoice--}}
 
 <!-- SB Admin Scripts - Include with every page -->
 <script src="{{ asset('/') }}/admin/js/sb-admin.js"></script>

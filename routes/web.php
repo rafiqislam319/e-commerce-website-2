@@ -72,6 +72,48 @@ Route::get('/complete/order', [
 ]);
 
 
+Route::get('/manage/order', [
+    'uses' => 'OrderController@manageOrderInfo',
+    'as' =>'manage-order'
+]);
+Route::get('/view/order/details/{id}', [
+    'uses' => 'OrderController@viewOrderDetail',
+    'as' =>'view-order-detail'
+]);
+Route::get('/view/order/invoice/{id}', [
+    'uses' => 'OrderController@viewOrderInvoice',
+    'as' =>'view-order-invoice'
+]);
+Route::get('/download/invoice/{id}', [
+    'uses' => 'OrderController@downloadOrderInvoice',
+    'as' =>'download-order-invoice'
+]);
+
+
+
+/*Front end signup and Login*/
+Route::get('/frontend-sign-up', [
+    'uses' => 'FrontEndSignUpController@index',
+    'as' =>'frontend-sign-up'
+]);
+Route::post('/customer-sign-up', [
+    'uses' => 'FrontEndSignUpController@customerSignUp',
+    'as' =>'customer-sign-up'
+]);
+Route::post('/customer-logout', [
+    'uses' => 'FrontEndSignUpController@customerLogout',
+    'as' =>'customer-logout'
+]);
+Route::get('/new/customer/login/page', [
+    'uses' => 'FrontEndSignUpController@customerLoginShow',
+    'as' =>'new-customer-login-page'
+]);
+Route::post('/new/customer/login', [
+    'uses' => 'FrontEndSignUpController@customerLogin',
+    'as' =>'new-customer-login'
+]);
+
+
 
 
 /*Admin part starts here*/
